@@ -24,3 +24,28 @@ Naming/FileName:
 Style/ClassAndModuleChildren:
   Exclude:
     - 'spec/spec_helper.rb'
+
+Naming/PredicateName:
+  Enabled: false
+  # Predicate name prefixes.
+  NamePrefix:
+    - is_
+    - has_
+    - have_
+  # Predicate name prefixes that should be removed.
+  NamePrefixBlacklist:
+    - is_
+    - has_
+    - have_
+  # Predicate names which, despite having a blacklisted prefix, or no `?`,
+  # should still be accepted
+  NameWhitelist:
+    - is_a?
+  # Method definition macros for dynamically generated methods.
+  MethodDefinitionMacros:
+    - define_method
+    - define_singleton_method
+  # Exclude Rspec specs because there is a strong convention to write spec
+  # helpers in the form of `have_something` or `be_something`.
+  Exclude:
+    - 'spec/**/*'
