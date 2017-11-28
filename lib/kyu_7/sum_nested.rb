@@ -5,3 +5,15 @@ module Kyu7
     list.flatten.reduce(:+) || 0
   end
 end
+
+# Implement a function to calculate
+# the sum of the numerical values in a nested list.
+#
+# FUNDAMENTALS
+# RECURSION
+# ALGORITHMS
+# COMPUTABILITY THEORY
+# THEORETICAL COMPUTER SCIENCE
+# LISTS
+# DATA
+# STRUCTURES
