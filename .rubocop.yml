@@ -1,0 +1,26 @@
+AllCops:
+  TargetRubyVersion: 2.2
+  Exclude:
+    - 'spec/spec_helper.rb'
+    - 'Rakefile'
+    - 'Guardfile'
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: true
+  Max: 90
+  AllowHeredoc: true
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+
+Naming/FileName:
+  Exclude:
+    - 'Gemfile'
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'spec/spec_helper.rb'
