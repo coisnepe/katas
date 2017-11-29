@@ -1,0 +1,8 @@
+<%= "# url: #{options[:url]}\n" if options[:url] %>
+describe <%= level.delete("_").capitalize %> do
+  describe "#<%= name %>" do
+    it "works" do
+      skip "add some examples to (or delete) #{__FILE__}"
+    end
+  end
+end

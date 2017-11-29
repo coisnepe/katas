@@ -85,6 +85,7 @@ DEPENDENCIES
   rake
   rspec
   rubocop
+  thor
 
 BUNDLED WITH
    1.16.0

@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require 'thor'
+
+class FilesGenerator < Thor::Group
+  include Thor::Actions
+
+  # Define arguments and options
+  argument :level
+  argument :name
+  class_option :url
+
+  def self.source_root
+    File.dirname(__FILE__)
+  end
+
+  def create_lib_file
+    template('lib_file.tt', "lib/#{level}/#{name}.rb")
+  end
+
+  def create_test_file
+    template('spec_file.tt', "spec/#{level}/#{name}_spec.rb")
+  end
+end
+
+FilesGenerator.start
