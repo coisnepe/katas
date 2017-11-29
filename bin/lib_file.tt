@@ -1,0 +1,6 @@
+<%= "# url: #{options[:url]}\n" if options[:url] %>
+module <%= level.delete("_").capitalize %>
+  def self.<%= name %>
+    # Your code here
+  end
+end
