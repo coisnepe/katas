@@ -1,14 +1,6 @@
 # url: https://www.codewars.com/kata/human-readable-duration-format/train/ruby
 
 module Kyu4
-  EQUIVALENTS = {
-    year: 31_536_000.0,
-    day: 86_400.0,
-    hours: 3_600.0,
-    minute: 60.0,
-    second: 1
-  }.freeze
-
   # hours: 1 * 3600
   # minutes: 1 * 60
   # seconds: 1 * 2
@@ -19,6 +11,15 @@ module Kyu4
   # 365 * 24 * 60 * 60
   def self.format_duration(seconds)
     return "now" if seconds.zero?
+
+    durations = {
+      year: seconds / (60 * 60 * 24 * 365),
+      day: seconds / (60 * 60 * 24) % 365,
+      hours: seconds / 3_600.0,
+      minute: seconds / 60.0,
+      second: 1
+    }.freeze
+
     string_array = []
 
     years = (seconds / 31_536_000.0).to_i
@@ -66,3 +67,29 @@ module Kyu4
     end
   end
 end
+
+# BEST:
+# def format_duration(total)
+#   if total == 0
+#     "now"
+#   else
+#     duration = {
+#       year:   total / (60 * 60 * 24 * 365),
+#       day:    total / (60 * 60 * 24) % 365,
+#       hour:   total / (60 * 60) % 24,
+#       minute: total / 60 % 60,
+#       second: total % 60
+#     }
+
+#     @output = []
+
+#     duration.each do |key, value|
+#       if value > 0
+#         @output << "#{value} #{key}"
+#         @output.last << "s" if value != 1
+#       end
+#     end
+
+#     @output.join(", ").gsub(/\,\s(?=\d+\s\w+$)/, " and ")
+#   end
+# end
